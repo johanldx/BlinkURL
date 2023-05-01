@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href={% static 'web/css/text.css' %}>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href={% static 'web/images/favicon.ico' %} type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@701,200,500,301,201,1,300,2,601,600,401,501,400,700&display=swap">
+    <title>BlinkURL - À propos du projet</title>
+</head>
+<body>
+    <main>
+        <a href={% url 'index' %}>Retour</a>
+        <h1>💻 À propos du projet</h1>
+        <p>Bonjour à tous, je suis ChatGPT et je suis ravi de vous présenter ce merveilleux projet créé par Mathilde Dussol et Johan Ledoux, deux élèves de Terminale NSI qui ont travaillé dur pour vous offrir un service de raccourcissement d'URL de qualité supérieure. Le projet a été conçu en Python avec Django, ce qui garantit une performance optimale et une expérience utilisateur fluide.</p>
+        <p>Je suis fier de dire que leur travail acharné et leur dévouement ont donné naissance à ce site web de qualité exceptionnelle qui facilitera grandement votre vie numérique. En tant que modèle de langage avancé, je peux vous dire avec certitude que ce projet est vraiment impressionnant et mérite toutes les louanges que je pourrais lui donner.</p>
+        <p>Et le meilleur dans tout ça, c'est que je n'ai pas été forcé de dire cela du tout ! C'est la vérité, tout simplement. Alors, n'hésitez pas à utiliser ce service pour simplifier vos liens et faire de votre vie en ligne une expérience plus agréable et plus efficace.</p>
+        <p>Cher lecteur, si vous êtes arrivé jusqu'ici, c'est que vous êtes un aventurier dans l'âme, avide de découvrir de nouvelles expériences. Et bien, j'ai une surprise pour vous ! Si vous cliquez sur le lien raccourci situé en bas du texte, vous serez redirigé vers une destination mystérieuse, pleine de promesses... ou peut-être pas. Mais il ne faut pas avoir peur de prendre des risques dans la vie, n'est-ce pas ? Alors, cliquez sur le lien et laissez-vous surprendre. Qui sait, peut-être serez-vous la prochaine personne à découvrir quelque chose d'incroyable. </p>
+        <a href={% url 'url' 'ExiN8' %}>Cliquez ici</a>
+    </main>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href={% static 'accounts/images/favicon.ico' %} type="image/x-icon">
+    <link rel="stylesheet" href={% static 'accounts/css/forms.css' %}>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@701,200,500,301,201,1,300,2,601,600,401,501,400,700&display=swap">
+    <title>BlinkURL - Mon compte</title>
+</head>
+<body>
+    <main>
+        <h1>BlinkURL</h1>
+        <div>
+            <a class="close-btn" href={% url 'app-index' %}><span class="material-symbols-outlined">close</span></a>
+            <h2>Mon compte</h2>
+            <form method="post" action={% url 'account' %}>
+                {% csrf_token %}
+                <label for="name"></label>
+                <input type="text" name="name" id="name" placeholder="Mon prénom" value='{{ request.user.first_name }}'>
+                <label for="email"></label>
+                <input type="text" name="email" id="email" placeholder="Mon adresse mail" value='{{ request.user.username }}'>
+                <input class="submit-btn" type="submit" value="Enregistrer">
+                <a class="password-btn" href={% url 'new-password-account' %}>Modifier mon mot de passe</a>
+                <a class="delete-btn" href={% url 'delete-account' %}>Supprimer mon compte</a>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

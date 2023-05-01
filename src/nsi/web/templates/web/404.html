@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static 'web/css/404.css' %}>
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@701,200,500,301,201,1,300,2,601,600,401,501,400,700&display=swap" rel="stylesheet">
+    <title>BlinkURL - Ressource non trouvé !</title>
+</head>
+<body>
+    <main>
+        <h1>404</h1>
+        <h2>Oups, ressource introuvable !</h2>
+    </main>
+
+    <footer>
+        <p>Mathilde Dussol & Johan Ledoux © 2023 - <a href={% url 'cgu' %}>CGU</a> - <a href={% url 'a-propos' %}>À propos</a></p>
+    </footer>
+</body>
+</html>

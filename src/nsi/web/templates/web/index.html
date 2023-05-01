@@ -1,0 +1,66 @@
+<!--
+  __  __       _   _     _ _     _             _         _       _
+ |  \/  | __ _| |_| |__ (_) | __| | ___    ___| |_      | | ___ | |__   __ _ _ __
+ | |\/| |/ _` | __| '_ \| | |/ _` |/ _ \  / _ \ __|  _  | |/ _ \| '_ \ / _` | '_ \
+ | |  | | (_| | |_| | | | | | (_| |  __/ |  __/ |_  | |_| | (_) | | | | (_| | | | |
+ |_|  |_|\__,_|\__|_| |_|_|_|\__,_|\___|  \___|\__|  \___/ \___/|_| |_|\__,_|_| |_|
+
+ Projet finale de NSI, 2023
+
+ Développé en Django
+ Serveur web Nginx & Gunicorn
+ Hébergé sur VPS chez OVH
+
+ Contact : blinkurl@pazu444.fr
+
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href={% static 'web/images/favicon.ico' %} type="image/x-icon">
+    <link rel="stylesheet" href={% static 'web/css/style.css' %}>
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@701,200,500,301,201,1,300,2,601,600,401,501,400,700&display=swap">
+    <title>BlinkURL - Raccourcir mes liens !</title>
+    <meta name="description" content="Raccourcir des liens gratuitement et facilement en ayant un suivi efficace.">
+    <meta name="keywords" content="Lien, URL, Raccourcir, gratuit, facile, short">
+    <meta name="author" content="Mathilde Dussol, Johan Ledoux">
+    <meta name="google-site-verification" content="bfZbl8Mv7m1_kscmZJCDmozYh3uyki8JvhqKvmgd3Ew" />
+</head>
+<body>
+    <header>
+        <h1>BlinkURL</h1>
+        {% if request.user.is_authenticated %}
+            <a href={% url 'app-index' %}>Entrer</a>
+        {% else %}
+            <a href={% url 'login' %}>Me connecter</a>
+        {% endif %}
+    </header>
+    <main>
+        <div class="index-section">
+            <div>
+                <h1>Un outil simple <br>
+                    conçu pour les <br>
+                    <span id="typewriter"></span>
+                </h1>
+                <p>Raccourcissez vos liens et suivez leur utilisation en direct. <br>
+                   Un service 100% gratuit au service de tous.</p>
+                <div class="index-buttons">
+                    <a href={% url 'new-account' %}>Commencer</a>
+                    <a href={% url 'contact' %} target="blank">Nous contacter</a>
+                </div>
+            </div>
+            <div style="background-image: url({% static 'web/images/background.png' %});"></div>
+        </div>
+    </main>
+    <footer>
+        <p>Mathilde Dussol & Johan Ledoux © 2023 - <a href={% url 'cgu' %}>CGU</a> - <a href={% url 'a-propos' %}>À propos</a></p>
+    </footer>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script src={% static 'web/js/main.js' %}></script>
+</body>
+</html>

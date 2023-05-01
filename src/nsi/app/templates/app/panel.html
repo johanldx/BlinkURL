@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static 'app/css/panel.css' %}>
+    <link rel="shortcut icon" href={% static 'app/images/favicon.ico' %} type="image/x-icon">
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@701,200,500,301,201,1,300,2,601,600,401,501,400,700&display=swap">
+    <title>BlinkURL - Application</title>
+</head>
+<body>
+    <header>
+        <h1>BlinkURL</h1>
+        <div>
+            <a href={% url 'logout' %}>Déconnexion</a>
+            <a href={% url 'account' %}>Mon compte</a>
+        </div>
+    </header>
+    <main>
+        <p class="hello-message">Bonjour {{ request.user.first_name }} !</p>
+        <a class="action-btn" href={% url 'add-url' %}>Nouveau lien</a>
+        <div class="container">
+            <section class="list-link">
+                <h2>Vos liens</h2>
+                <div class="list-link-container">
+                    {% for url in urls %}
+                    <div>
+                        <p>{{ url.name }}</p>
+                        <p>
+                            <a href={% url 'edit-url' url.id %}>Informations</a>
+                            <a href={% url 'delete-url' url.id %}>Supprimer</a>
+                        </p>
+                    </div>
+                    <hr>
+                    {% empty %}
+                    <div>
+                        <p>Aucun lien.</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+            <section class="informations-link">
+                <h2>Informations</h2>
+                <div class="informations-link-container">
+                    {% if edit_url is not None %}
+                    <form method="post" action={% url 'app-index' %}>
+                        {% csrf_token %}
+                        <label for="name"></label>
+                        <input type="text" name="name" id="name" placeholder="Nom" value="{{ edit_url.name }}">
+                        <label for="link"></label>
+                        <input type="text" name="link" id="link" placeholder="Lien" value="{{ edit_url.url }}">
+                        <div class="informations-link-submit">
+                            <input class="submit" type="submit" value="Enregistrer">
+                        </div>
+                    </form>
+                    <hr>
+                    <p>Créé le : <span>{{ edit_url.date }}</span></p>
+                    <p>Nombre de cliques : <span>{{ edit_url.statistics }}</span></p>
+                    <p>URL Raccourcis : <span><a style="text-decoration: none; color: black;" href="{% url 'url' edit_url.key %}" target="_blank">https://www.pazu444.fr/{{ edit_url.key }}</a></span></p>
+                    {% else %}
+                    <p class="empty">Oups ! C'est bien vide ici.</p>
+                    {% endif%}
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
