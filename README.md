@@ -19,7 +19,7 @@ Vous pouvez découvrir le projet et son élaboration grâce au <a href='rapport_
 
 - <a href='https://www.djangoproject.com/' target='_blank'>Django</a> (framework back-end Python)
 - <a href='https://www.nginx.com/' target='_blank'>Nginx</a> (serveur web)
-- <a href='https://gunicorn.org/' target='_blank'>Gnicorn</a> (serveur HTTP Python)
+- <a href='https://gunicorn.org/' target='_blank'>Gunicorn</a> (serveur HTTP Python)
 - <a href='https://www.sendinblue.com/' target='_blank'>Sendinblue</a> (SMTP) 
 - <a href='https://www.ovhcloud.com/fr/' target='_blank'>OVH</a> (VPS STARTER, Nom de domaine, Boîte e-mail) 
 - <a href='https://www.midjourney.com/home/?callbackUrl=%2Fapp%2F' target='_blank'>Midjouney</a> (génération de l'illustration) 
